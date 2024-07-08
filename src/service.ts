@@ -37,7 +37,7 @@ export const decodeTxHash = async (networkFrom:string, networkTo:string, transac
            const estimate = await MessageTransmiterContract.receiveMessage.estimateGas(messageBytes[0], 
                attestation
            )
-           const wallet = new ethers.Wallet('3db1a7c56eab221d92d70a59deefef73215b14640ee0449b454f980b9875b993', destProvider);
+           const wallet = new ethers.Wallet(process.env.APP_PRIVATE_KEY as string, destProvider);
            const MessageTransmiterContractSigner = new ethers.Contract(CHAIN_IDS_TO_MESSAGE_TRANSMITTER_ADDRESSES_TESTNET[ChainToSupportedChainIdTestnet[networkToEnum as ChainTestnet]], MessageTransmiterAbi, wallet);
 
            const tx = await MessageTransmiterContractSigner.receiveMessage(messageBytes[0], attestation);
