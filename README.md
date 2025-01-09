@@ -1,2 +1,4 @@
-# receive-message
-express project with wss rpc provider
+Для запуска приложения:
+1. установить зависимости yarn install
+2. настроить .env 
+3. Запустить npm run dev
